@@ -42,3 +42,24 @@ def test_rock_loses(game):
         computer_action=GameAction.PAPER)
 
 
+# =========================
+# PAPER/PAPEL GANA O PIERDE
+# =========================
+
+@pytest.mark.paper
+def test_paper_wins(game):
+    assert GameResult.VICTORY == game.assess_game(
+        user_action=GameAction.PAPER,
+        computer_action=GameAction.ROCK)
+
+
+@pytest.mark.paper
+def test_paper_loses(game):
+    assert GameResult.DEFEAT == game.assess_game(
+        user_action=GameAction.PAPER,
+        computer_action=GameAction.SCISSORS)
+
+
+
+
+
