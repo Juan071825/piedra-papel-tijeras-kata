@@ -58,6 +58,23 @@ def test_paper_loses(game):
     assert GameResult.DEFEAT == game.assess_game(
         user_action=GameAction.PAPER,
         computer_action=GameAction.SCISSORS)
+    
+# =========================
+# SCISSORS/TIJERAS GANA O PIERDE
+# =========================
+
+@pytest.mark.scissors
+def test_scissors_wins(game):
+    assert GameResult.VICTORY == game.assess_game(
+        user_action=GameAction.SCISSORS,
+        computer_action=GameAction.PAPER)
+
+
+@pytest.mark.scissors
+def test_scissors_loses(game):
+    assert GameResult.DEFEAT == game.assess_game(
+        user_action=GameAction.SCISSORS,
+        computer_action=GameAction.ROCK)
 
 
 
