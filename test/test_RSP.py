@@ -1,8 +1,9 @@
 import pytest
 
+
 @pytest.fixture
 def game():
-    return Game()
+    return RPS()
 
 
 # =========================
@@ -58,7 +59,8 @@ def test_paper_loses(game):
     assert GameResult.DEFEAT == game.assess_game(
         user_action=GameAction.PAPER,
         computer_action=GameAction.SCISSORS)
-    
+
+
 # =========================
 # SCISSORS/TIJERAS GANA O PIERDE
 # =========================
@@ -75,8 +77,3 @@ def test_scissors_loses(game):
     assert GameResult.DEFEAT == game.assess_game(
         user_action=GameAction.SCISSORS,
         computer_action=GameAction.ROCK)
-
-
-
-
-
