@@ -1,4 +1,5 @@
 import pytest
+from src.RPS_dict import GameAction, GameResult, RPS
 
 
 @pytest.fixture
@@ -12,17 +13,17 @@ def game():
 
 @pytest.mark.draw
 def test_draw(game):
-    assert GameResult.TIE == game.assess_game(
-        user_action=GameAction.ROCK,
-        computer_action=GameAction.ROCK)
+    assert GameResult.Tie == game.assess_game(
+        user_action=GameAction.Rock,
+        computer_action=GameAction.Rock)
 
-    assert GameResult.TIE == game.assess_game(
-        user_action=GameAction.PAPER,
-        computer_action=GameAction.PAPER)
+    assert GameResult.Tie == game.assess_game(
+        user_action=GameAction.Paper,
+        computer_action=GameAction.Paper)
 
-    assert GameResult.TIE == game.assess_game(
-        user_action=GameAction.SCISSORS,
-        computer_action=GameAction.SCISSORS)
+    assert GameResult.Tie == game.assess_game(
+        user_action=GameAction.Scissors,
+        computer_action=GameAction.Scissors)
 
 
 # =========================
@@ -31,16 +32,16 @@ def test_draw(game):
 
 @pytest.mark.rock
 def test_rock_wins(game):
-    assert GameResult.VICTORY == game.assess_game(
-        user_action=GameAction.ROCK,
-        computer_action=GameAction.SCISSORS)
+    assert GameResult.Victory == game.assess_game(
+        user_action=GameAction.Rock,
+        computer_action=GameAction.Scissors)
 
 
 @pytest.mark.rock
 def test_rock_loses(game):
-    assert GameResult.DEFEAT == game.assess_game(
-        user_action=GameAction.ROCK,
-        computer_action=GameAction.PAPER)
+    assert GameResult.Defeat == game.assess_game(
+        user_action=GameAction.Rock,
+        computer_action=GameAction.Paper)
 
 
 # =========================
@@ -49,16 +50,16 @@ def test_rock_loses(game):
 
 @pytest.mark.paper
 def test_paper_wins(game):
-    assert GameResult.VICTORY == game.assess_game(
-        user_action=GameAction.PAPER,
-        computer_action=GameAction.ROCK)
+    assert GameResult.Victory == game.assess_game(
+        user_action=GameAction.Paper,
+        computer_action=GameAction.Rock)
 
 
 @pytest.mark.paper
 def test_paper_loses(game):
-    assert GameResult.DEFEAT == game.assess_game(
-        user_action=GameAction.PAPER,
-        computer_action=GameAction.SCISSORS)
+    assert GameResult.Defeat == game.assess_game(
+        user_action=GameAction.Paper,
+        computer_action=GameAction.Scissors)
 
 
 # =========================
@@ -67,13 +68,13 @@ def test_paper_loses(game):
 
 @pytest.mark.scissors
 def test_scissors_wins(game):
-    assert GameResult.VICTORY == game.assess_game(
-        user_action=GameAction.SCISSORS,
-        computer_action=GameAction.PAPER)
+    assert GameResult.Victory == game.assess_game(
+        user_action=GameAction.Scissors,
+        computer_action=GameAction.Paper)
 
 
 @pytest.mark.scissors
 def test_scissors_loses(game):
-    assert GameResult.DEFEAT == game.assess_game(
-        user_action=GameAction.SCISSORS,
-        computer_action=GameAction.ROCK)
+    assert GameResult.Defeat == game.assess_game(
+        user_action=GameAction.Scissors,
+        computer_action=GameAction.Rock)
